@@ -10,6 +10,7 @@ import TheWelcome from './components/TheWelcome.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
+    <p><router-link to="/new">Go to Sample View</router-link></p>
   </header>
 
   <main>
