@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            margin: 10px;
+            padding: 20px;
+            background: #ffc107;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .card:hover {
+            background: #e0a800;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #007bff;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const result = document.getElementById('result');
+        const revealButton = document.getElementById('reveal');
+
+        let selectedCards = [];
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('selected');
+                const value = card.getAttribute('data-value');
+                if (selectedCards.includes(value)) {
+                    selectedCards = selectedCards.filter(v => v !== value);
+                } else {
+                    selectedCards.push(value);
+                }
+            });
+        });
+
+        revealButton.addEventListener('click', () => {
+            result.innerHTML = `Selected Values: ${selectedCards.join(', ')}`;
+            selectedCards = [];
+            cards.forEach(card => card.classList.remove('selected'));
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Planning Poker</h1>
+    </header>
+    <main>
+        <section class="room-creation">
+            <h2>Create a Room</h2>
+            <input type="text" id="roomName" placeholder="Enter Room Name">
+            <button id="createRoom">Create Room</button>
+        </section>
+        <section class="join-room">
+            <h2>Join a Room</h2>
+            <input type="text" id="roomCode" placeholder="Enter Room Code">
+            <button id="joinRoom">Join Room</button>
+        </section>
+        <section class="cards">
+            <h2>Choose Your Card</h2>
+            <div class="card-container">
+                <button class="card">1</button>
+                <button class="card">2</button>
+                <button class="card">3</button>
+                <button class="card">5</button>
+                <button class="card">8</button>
+                <button class="card">13</button>
+                <button class="card">21</button>
+                <button class="card">34</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Planning Poker. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
