@@ -9,23 +9,23 @@
 </template>
 
 <script>
-import Card from './Card.vue';
-import Chat from './Chat.vue';
+import Card from './Card.vue'
+import Chat from './Chat.vue'
 
 export default {
   components: { Card, Chat },
   data() {
     return {
       roomId: this.$route.params.id,
-      cards: [1, 2, 3, 5, 8, 13, 21]
+      cards: [1, 2, 3, 5, 8, 13, 21],
     }
   },
   methods: {
     handleCardSelection(selectedCard) {
-      console.log(`Card selected: ${selectedCard}`);
+      console.log(`Card selected: ${selectedCard}`)
       // Handle the card selection logic
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -12,17 +12,17 @@ export default {
   data() {
     return {
       messages: [],
-      newMessage: ''
+      newMessage: '',
     }
   },
   methods: {
     sendMessage() {
       if (this.newMessage.trim()) {
-        this.messages.push({ id: Date.now(), text: this.newMessage });
-        this.newMessage = '';
+        this.messages.push({ id: Date.now(), text: this.newMessage })
+        this.newMessage = ''
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

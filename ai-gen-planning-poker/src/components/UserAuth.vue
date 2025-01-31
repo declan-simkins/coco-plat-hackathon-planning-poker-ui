@@ -14,14 +14,14 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
     }
   },
   methods: {
     login() {
       // Handle login logic
-      console.log(`Logging in with ${this.username}`);
-    }
-  }
+      console.log(`Logging in with ${this.username}`)
+    },
+  },
 }
 </script>

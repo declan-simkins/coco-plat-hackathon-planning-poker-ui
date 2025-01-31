@@ -9,9 +9,9 @@ export default {
   props: ['value'],
   methods: {
     selectCard() {
-      this.$emit('card-selected', this.value);
-    }
-  }
+      this.$emit('card-selected', this.value)
+    },
+  },
 }
 </script>
 
